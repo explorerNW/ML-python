@@ -73,5 +73,18 @@ search.fit(X_train, y_train)
 print('search: ', search.best_params_)
 print('score: ', search.score(X_test, y_test))
 
+from sklearn.metrics import ConfusionMatrixDisplay
+from matplotlib import pyplot as plt
+from sklearn.svm import SVC
+from sklearn.datasets import make_classification
+
+X, y = make_classification(random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+clf = SVC(random_state=0)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
+plt.show()
+
 
 
