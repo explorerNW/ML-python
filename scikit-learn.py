@@ -13,13 +13,13 @@ clf.fit(x, y)
 result = clf.predict(x)
 print(result)
 
-result = clf.predict(
+pred = clf.predict(
     [
         [123, 2441, 35463],
         [7, 234, 5675]
     ]
 )
-print(result)
+print('predict: ', pred)
 
 from sklearn.preprocessing import StandardScaler
 
@@ -85,6 +85,20 @@ clf.fit(X_train, y_train)
 y_pred = clf.predict(X_test)
 ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
 plt.show()
+
+from sklearn import linear_model
+lreg = linear_model.LinearRegression()
+X = [[0, 0], [1, 1], [2, 2]]
+y = [0, 1, 2]
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+lreg.fit([[0, 0], [1, 1], [2, 2]], [0, 1, 2])
+y_pred = lreg.predict(X_test)
+ConfusionMatrixDisplay.from_predictions(y_test, y_pred)
+plt.show()
+
+import torch
+x = torch.rand(5, 3)
+print(x)
 
 
 
